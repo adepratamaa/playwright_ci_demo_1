@@ -12,7 +12,7 @@ on:
           - firefox
           - webkit
   schedule:
-    - cron: '30 7 * * *'
+    - cron: '0 1 * * *'
   push:
     branches: [main]
   pull_request:
