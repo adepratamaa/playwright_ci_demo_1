@@ -1,6 +1,7 @@
 name: Playwright Tests
 
 on:
+  # run workflow manually
   workflow_dispatch:
     inputs:
       browser:
@@ -11,14 +12,20 @@ on:
           - chromium
           - firefox
           - webkit
+  # run the workflow based on the schedule
   schedule:
     - cron: '0 1 * * *'
-
+  # trigger: push new changes
   push:
     branches: [main]
-
+  # trigger: open a pull request
   pull_request:
     types: [opened, reopened]
+    branches:
+      - main
+      - 'feature/**'
+      - 'test/**'
+  # trigger: merge a pr
   merge_group:
     types: [checks_requested]
 
@@ -30,6 +37,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
