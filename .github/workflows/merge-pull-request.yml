@@ -1,4 +1,4 @@
-name: Merger Pull Request
+name: Merge Pull Request
 
 on:
   # trigger: merge a pr
