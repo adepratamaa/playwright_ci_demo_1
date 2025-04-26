@@ -20,9 +20,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Checkout branch
-        uses: actions/checkout
         with:
           ref: ${{ github.head_ref }}
 
