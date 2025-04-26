@@ -13,9 +13,8 @@ on:
           - webkit
   schedule:
     - cron: '0 1 * * *'
+
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:
