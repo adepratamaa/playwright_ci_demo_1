@@ -18,10 +18,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref && github.sha }}
+          ref: ${{ steps.extract_branch.outputs.branch }}
           fetch-depth: 0
 
       - name: Setup Node.js
