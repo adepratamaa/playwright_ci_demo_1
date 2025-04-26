@@ -6,13 +6,13 @@ on:
       browser:
         type: choice
         description: Which browser to test
-        required: false
+        required: true
         options:
           - chromium
           - firefox
           - webkit
   schedule:
-    - cron: "35 13 * * *"
+    - cron: '0 7 * * *'
   push:
     branches: [main]
   pull_request:
@@ -39,7 +39,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test ${{ github.event.inputs.browser || 'chromium' }}
+        run: npx playwright test --browser ${{ github.event.inputs.browser || 'chromium' }}
 
       - name: Upload test results
         if: ${{ !cancelled() }}
