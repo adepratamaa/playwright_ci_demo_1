@@ -18,14 +18,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Extract branch name
-        run: echo "Branch name ${GIT_BRANCH_NAME}"
-
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
