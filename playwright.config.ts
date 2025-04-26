@@ -7,7 +7,7 @@ const config: PlaywrightTestConfig = {
     ignoreHTTPSErrors: true,
     video: 'on-first-retry',
   },
-  reporter: [['html', { outputFolder: 'test-results' }]],
+  reporter: [['html']],
 };
 
 export default config;
