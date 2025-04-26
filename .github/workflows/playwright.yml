@@ -19,15 +19,15 @@ on:
   push:
     branches: [main]
   # trigger: open a pull request
-  pull_request:
-    types: [opened, reopened]
-    branches:
-      - main
-      - 'feature/**'
-      - 'test/**'
+  # pull_request:
+  #   types: [opened, reopened]
+  #   branches:
+  #     - main
+  #     - 'feature/**'
+  #     - 'test/**'
   # trigger: merge a pr
-  merge_group:
-    types: [checks_requested]
+  # merge_group:
+  #   types: [checks_requested]
 
 jobs:
   test:
@@ -37,9 +37,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
+        # with:
+        #   ref: ${{ github.head_ref }}
+        #   fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
