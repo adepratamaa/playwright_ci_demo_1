@@ -1,5 +1,6 @@
 {
-  "dependencies": {
+  "devDependencies": {
+    "@types/node": "^22.15.2",
     "playwright": "^1.52.0"
   }
 }
