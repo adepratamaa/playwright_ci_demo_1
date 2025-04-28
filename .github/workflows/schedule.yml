@@ -1,4 +1,4 @@
-name: Push Changes
+name: Scheduled workflow
 
 on:
   # run the workflow based on the schedule
