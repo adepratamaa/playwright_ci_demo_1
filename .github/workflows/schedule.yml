@@ -3,7 +3,7 @@ name: Scheduled workflow
 on:
   # run the workflow based on the schedule
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '0 2 * * *'
 
 jobs:
   start:
