@@ -14,7 +14,7 @@ on:
           - webkit
   # run the workflow based on the schedule
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 9 * * *'
   # trigger: push new changes
   push:
     branches: [main]
