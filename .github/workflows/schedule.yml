@@ -1,21 +1,9 @@
 name: Push Changes
 
 on:
-  # run workflow manually
-  workflow_dispatch:
-    inputs:
-      browser:
-        type: choice
-        description: Which browser to test
-        required: true
-        options:
-          - chromium
-          - firefox
-          - webkit
-
-  # trigger: push new changes
-  push:
-    branches: [main]
+  # run the workflow based on the schedule
+  schedule:
+    - cron: '0 9 * * *'
 
 jobs:
   start:
@@ -38,7 +26,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --browser ${{ github.event.inputs.browser || 'chromium' }}
+        run: npx playwright test
 
       - name: Upload test results
         if: ${{ !cancelled() }}
